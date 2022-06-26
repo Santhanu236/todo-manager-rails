@@ -12,6 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2022_06_22_174124) do
 
+  create_table "todo_models", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "todo_text"
+    t.string "due_date"
+    t.boolean "completed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "todos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "todo_text"
     t.string "due_date"

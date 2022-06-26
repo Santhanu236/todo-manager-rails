@@ -1,1 +1,56 @@
-<h1>Todos#index</h1>
+<h1 align="center">Todo Vault</h1>
+
+<div id="main-div">
+    <span style="white-space: nowrap;">
+    <p style="font-size: 20px; display: inline-block;">My Todos</p>
+    <button type="button" class="btn" style="background-color: blue; margin-left: 70%;" onclick="createTodo()">+ New Todo</button>
+    <button class="btn" style="background-color: red;" onclick="deleteTodo()">- Delete Todo</button>
+    </span>
+    <div id="todo-div">
+        <%Todo.all.map do |todo|%>
+        <div class="todo-child">
+            <p><%= todo.id%></p>
+            <p><%= todo.todo_text %></p>
+            <p><%= todo.due_date %></p>
+            <% comp = todo.completed==true ? "✅ Completed" : "❌ Not Completed" %>
+            <p><%= comp %></p>
+            <form action="/mac" method="post">
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="id" value="<%= todo.id %>">
+                <button class="btn" type="submit" style="background-color: blue;">Mark as Complete</button>
+            </form>
+            </div>
+        <%end%>
+    </div>
+</div>
+<div id="popup-dt" class="popup">
+    <form action="/del" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <p>Enter the ID that you want to Delete:</p>
+    <input type="text" class="inp" name="del_id" placeholder="Enter the ID you want to delete" required> <br> <br>
+    <button type="submit" class="btn" style="background-color: red;">- Delete Todo</button>
+    <button type="button" class="btn" style="background-color: rgb(235, 235, 235);color: black;width: 100px;"><a href="/">Cancel</a></button>
+    </form>
+</div>
+<div id="popup-nt" class="popup" style="width: fit-content;">
+    <form action="/insert" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <p>Todo Text:</p>
+        <input type="text" name="todo_text" class="inp" placeholder="Enter the Todo Text" required>
+        <p>Due Date:</p>
+        <input type="date" name="due_date" class="inp" required> <br> <br> <br>
+        <button type="submit" class="btn" style="background-color: blue; width: 100px;">Create</button>
+        <button type="button" class="btn" style="background-color: rgb(235, 235, 235);color: black; width: 100px;"><a href="/">Cancel</a></button>
+
+    </form>
+</div>
+<script>
+    function createTodo() {
+        document.getElementById("popup-nt").style.display = "block";
+        document.getElementById("main-div").style.filter = "blur(8px)";
+    }
+    function deleteTodo() {
+        document.getElementById("popup-dt").style.display = "block";
+        document.getElementById("main-div").style.filter = "blur(1px)";
+    }
+</script>

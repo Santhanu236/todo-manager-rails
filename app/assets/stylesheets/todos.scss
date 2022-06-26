@@ -1,3 +1,81 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+    font-family: sans-serif;
+    color: white;
+    background-color: black;
+
+}
+#main-div{
+    background-color: white;
+    color: black;
+    width: 65%;
+    height: 10%;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 18%;
+}
+.popup {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 33%;
+    height: fit-content;
+    width: 500px;
+    background-color: white;
+    color: black;
+    opacity: 90%;
+    box-shadow: 2px 2px 10px rgb(150, 150, 150);
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 50px;
+}
+
+.inp {
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    border: none;
+    height: 40px;
+    width: 400px;
+    padding-left: 5px;
+
+}
+.btn {
+    height: 50px;
+    width: auto;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+#todo-div{
+    height: fit-content;
+    background-color: rgb(234, 234, 234);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgb(150, 150, 150);
+    padding: 10px;
+    margin-top: 10px;
+}
+.todo-child {
+    padding: 5px;
+    padding-left: 10px;
+    background-color: white;
+    height: fit-content;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 10% 45% 15% 15% 15% ;
+}
+.todo-child > .btn {
+    background-color: black;
+    margin-right: 10px;
+}
+
