@@ -26,7 +26,7 @@ class TodosController < ApplicationController
   def insert
     todo_text = params[:todo_text]
     due_date = params[:due_date]
-    macid =
+
     new_todo = Todo.create!(
       todo_text: todo_text,
       due_date: due_date,
